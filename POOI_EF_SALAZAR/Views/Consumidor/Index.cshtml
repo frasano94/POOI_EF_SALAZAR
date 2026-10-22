@@ -1,0 +1,65 @@
+﻿@model IEnumerable<POOI_EF_SALAZAR.Models.Consumidor>
+
+@{
+    ViewBag.Title = "Lista de Consumidores";
+}
+
+<h2>Consumidores</h2>
+
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["mensaje"]
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Dnicont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nomcont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apecont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emailcont)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Idpais)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dnicont)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nomcont)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apecont)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emailcont)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idpais)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
